@@ -1,0 +1,265 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage[inline]{enumitem}
+\usepackage{acronym}
+\usepackage[
+  backend=biber,
+  style=ieee,
+  sorting=ydnt,
+  sortcites=true,
+  defernumbers=true,
+  maxnames=99,
+  doi=true,
+  url=false,
+  isbn=false
+]{biblatex}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\addbibresource{publications.bib}
+
+% Keep titles as written in the .bib (the IEEE style would lowercase them)
+\DeclareFieldFormat{sentencecase}{#1}
+
+% Highlight the candidate's name in every bibliography entry
+\renewcommand*{\mkbibnamefamily}[1]{\ifdefstring{\namepartfamily}{Farabegoli}{\textbf{#1}}{#1}}
+\renewcommand*{\mkbibnamegiven}[1]{\ifdefstring{\namepartfamily}{Farabegoli}{\textbf{#1}}{#1}}
+
+% Placeholders still to be completed before submission to the portal
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+\setlist{itemsep=2pt, topsep=4pt}
+
+\acrodef{cas}[CAS]{Collective Adaptive Systems}
+\acrodef{ecc}[ECC]{Edge-Cloud Continuum}
+\acrodef{iot}[IoT]{Internet of Things}
+\acrodef{gnn}[GNN]{Graph Neural Network}
+\acrodef{rl}[RL]{Reinforcement Learning}
+\acrodef{llm}[LLM]{Large Language Model}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Report of the Academic Activities Carried Out\\[2pt] During the Doctoral Path and List of Publications\par}
+  \vspace{1.2em}
+  {\large Nicolas Farabegoli\par}
+  \vspace{0.2em}
+  \href{mailto:nicolas.farabegoli@unibo.it}{\texttt{nicolas.farabegoli@unibo.it}}
+  \quad ORCID: \href{https://orcid.org/0000-0002-7321-358X}{0000-0002-7321-358X}
+\end{center}
+
+\vspace{0.8em}
+\noindent
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+  \toprule
+  PhD Programme & Computer Science and Engineering -- Cycle XXXIX \\
+  Institution & Alma Mater Studiorum -- Università di Bologna, Department of Computer Science and Engineering (DISI) \\
+  Thesis title & \emph{Engineering Collective Systems in the Edge-Cloud Continuum: Models and Platform} \\
+  Supervisor & Prof.\ Mirko Viroli \\
+  Co-supervisor & Prof.\ Danilo Pianini \\
+  PhD Coordinator & Prof.ssa Paola Salomoni \\
+  Funding & Italian PRIN project \emph{COMMON-WEARS} (2020HCWWLP) \\
+  \bottomrule
+\end{tabularx}
+
+% ---------------------------------------------------------------------------
+\section{Research Activities}
+\label{sec:research}
+
+My research activity, funded by the PRIN project \emph{COMMON-WEARS}, focused on the engineering of \ac{cas} deployed over the \ac{ecc}.
+%
+The scientific contributions, their motivation, and their evaluation are presented in the thesis to which this report is attached;
+this section only summarises how the activity unfolded over the three years, the collaborations it involved, and how the resulting publications relate to the thesis.
+
+\subsection{Research Path}
+\label{sec:path}
+
+\paragraph{First year (2023/2024).}
+The activity started from the pulverization model and its runtime support, leading to two journal articles~\cite{DBLP:journals/fgcs/FarabegoliPCV24,DBLP:journals/iot/FarabegoliPCV24} and a conference paper~\cite{DBLP:conf/acsos/FarabegoliVC24}.
+%
+I also started the investigation of learning-based reconfiguration~\cite{DBLP:conf/woa/DominiFAV24}, which I presented at the ACSOS 2024 Doctoral Symposium~\cite{DBLP:conf/acsos/Farabegoli24}.
+
+\paragraph{Second year (2024/2025).}
+The work broadened to deployment planning, in collaboration with the University of Pisa~\cite{DBLP:conf/coordination/BrogiCFFV25},
+to language-level support for macroprogramming~\cite{DBLP:journals/tiot/AguzziFV25},
+and to real-world experimentation with a robotic demonstrator~\cite{DBLP:conf/coordination/AguzziBBCCDFPV25}.
+%
+In the same period I started the work on placement types that led to the main language contribution of the thesis.
+
+\paragraph{Third year (2025/2026).}
+The last year consolidated these lines~\cite{farabegoli2026capabilities,DBLP:conf/coordination/FarabegoliTAV26,DBLP:journals/fgcs/FarabegoliDAV26,farabegoli2027emerge}
+and was devoted to writing the thesis.
+
+\subsection{Collaborations}
+\label{sec:collaborations}
+
+\begin{itemize}
+  \item \textbf{University of Pisa} -- Antonio Brogi and Stefano Forti, on declarative deployment planning~\cite{DBLP:conf/coordination/BrogiCFFV25}.
+  \item \textbf{University of St.~Gallen} -- Guido Salvaneschi, together with Pascal Weisenburger, on the unification of macroprogramming paradigms during two research periods abroad (\Cref{sec:abroad})~\cite{farabegoli2026capabilities}.
+  \item \textbf{Aarhus University} -- Lukas Esterle, on decentralised self-federated learning~\cite{DBLP:conf/acsos/DominiAFVE24,DBLP:journals/iot/DominiFAVE26}.
+  \item \textbf{The Ohio State University} -- Christopher Stewart and Jenna Kline, on multi-drone coordination for wildlife monitoring~\cite{DBLP:conf/acsos/GrushchakKPFABS24,DBLP:conf/acsos/GrushchakKPF24}.
+  \item \textbf{Research group at DISI} -- joint work with fellow PhD students and researchers on aggregate computing frameworks~\cite{DBLP:conf/coordination/AguzziDFV26}, robotic platforms~\cite{DBLP:conf/coordination/AguzziBBCCDFPV25,farabegoli2027emerge,DBLP:conf/ccnc/AndruccioliCDFDPVV26}, and \ac{llm}-based macroprogramming~\cite{DBLP:journals/tiot/AguzziFV25};
+  the robotic demonstrator was also showcased in a public live demo at the European Researchers' Night.
+\end{itemize}
+
+\subsection{Publications and Thesis}
+\label{sec:thesis}
+
+\Cref{tab:thesis} maps the parts of the thesis to the publications they build upon.
+%
+The remaining publications stem from collaborations on related topics and are not part of the thesis.
+
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Mapping between thesis parts and publications.}
+  \label{tab:thesis}
+  \begin{tabularx}{\textwidth}{@{}lXl@{}}
+    \toprule
+    Part & Topic & Publications \\
+    \midrule
+    II  & Pulverization model & \cite{DBLP:journals/fgcs/FarabegoliPCV24,DBLP:conf/acsos/FarabegoliVC24} \\
+    II  & Language support & \cite{farabegoli2026capabilities,DBLP:conf/coordination/FarabegoliTAV26,DBLP:journals/tiot/AguzziFV25} \\
+    III & Dynamic deployments & \cite{DBLP:journals/iot/FarabegoliPCV24,DBLP:conf/coordination/BrogiCFFV25,DBLP:journals/fgcs/FarabegoliDAV26} \\
+    III & Real-world demonstrator & \cite{DBLP:conf/coordination/AguzziBBCCDFPV25,farabegoli2027emerge} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% ---------------------------------------------------------------------------
+\section{Training Activities}
+\label{sec:training}
+
+During the doctoral path I attended the PhD courses and international schools listed in \Cref{tab:courses-eval} (with final evaluation) and \Cref{tab:courses-noeval} (without evaluation).
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \caption{Training activities with evaluation (exam passed).}
+  \label{tab:courses-eval}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.2cm}rl@{}}
+    \toprule
+    Course / School & Lecturer(s) & Hours & Period \\
+    \midrule
+    Bertinoro International Spring School (BISS) 2024 -- \emph{Graph Neural Networks} & F.~Silvestri (Sapienza University of Rome) & 12 & 11--15 Mar 2024 \\ \addlinespace[3pt]
+    Bertinoro International Spring School (BISS) 2024 -- \emph{Large Language Models} & D.~Croce (University of Rome Tor Vergata) & 12 & 11--15 Mar 2024 \\ \addlinespace[3pt]
+    Risk Assessment of Machine Learning for Cybersecurity & F.~Pierazzi (King's College London) & 20 & 8--12 May 2024 \\ \addlinespace[3pt]
+    How to Write and Publish a Research Paper in Computer Science and Engineering & Z.~Kiziltan (DISI, University of Bologna) & 12 & 28 Jun -- 9 Jul 2024 \\ \addlinespace[3pt]
+    Containerisation and Orchestration for Research Reproducibility & G.~Ciatto (DISI, University of Bologna) & 12 & 6--15 Nov 2024 \\ \addlinespace[3pt]
+    Multi-platform Programming for Research-Oriented Software & G.~Ciatto (DISI, University of Bologna) & 12 & 29 Nov -- 10 Dec 2024 \\ \addlinespace[3pt]
+    Service Orchestration and Industrial IoT Platforms for Industry 4.0 and 5.0 Environments & R.~Venanzi (DISI, University of Bologna) & 12 & 10--31 Jan 2025 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \caption{Training activities without evaluation.}
+  \label{tab:courses-noeval}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.2cm}rl@{}}
+    \toprule
+    Course / School & Lecturer(s) & Hours & Period \\
+    \midrule
+    Bertinoro International Spring School (BISS) 2024 -- \emph{Program Analysis: from Proving Correctness to Proving Incorrectness} & R.~Bruni, R.~Gori (University of Pisa) & 12 & 11--15 Mar 2024 \\ \addlinespace[3pt]
+    Introduction to Complex Systems Science & A.~Roli (DISI, University of Bologna) & 10 & 11 Jun -- 15 Jul 2024 \\ \addlinespace[3pt]
+    Toward Next-Generation Networks -- 5G and O-RAN Implementations & D.~Scotece (DISI, University of Bologna) & 12 & 22 Nov -- 11 Dec 2024 \\ \addlinespace[3pt]
+    SIESTA Summer School 2025 & L.~Pollock (University of Delaware), E.~Bogomolov (JetBrains Research), S.~Haiduc (Florida State University), R.~Feldt (Chalmers University of Technology), A.~Serebrenik (Eindhoven University of Technology), M.~Ceccato (University of Verona) & 9 & 26--30 Aug 2025 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% ---------------------------------------------------------------------------
+\section{Research Periods Abroad}
+\label{sec:abroad}
+
+I spent two research periods at the University of St.~Gallen (Switzerland), under the supervision of Prof.\ Guido Salvaneschi, working with him and his research group.
+
+\paragraph{First visit (March -- June 2025).}
+I investigated the theoretical underpinnings of effect systems and their potential as a common foundation for three paradigms for programming distributed systems---aggregate computing, multitier programming, and choreographic programming---which are usually treated as separate approaches by distinct research communities.
+%
+Together with Prof.\ Salvaneschi and his group, I started developing a framework that leverages the type system to improve the expressiveness and safety of distributed applications,
+providing static guarantees on system behaviour while retaining the flexibility required by edge-cloud deployments.
+%
+The visit broadened my background in programming language theory and type systems, complementing my previous focus on distributed and collective adaptive systems.
+
+\paragraph{Second visit (January -- February 2026).}
+I continued the collaboration to consolidate the framework, its formalisation, and its validation.
+
+\paragraph{Outcomes.}
+The work carried out during both visits led to \emph{CaMiL}, which models each paradigm as a capability over a common placement-typed core;
+the resulting article, co-authored with Pascal Weisenburger, Mirko Viroli, and Guido Salvaneschi, is currently under review at \emph{ACM TOPLAS}~\cite{farabegoli2026capabilities}.
+%
+The visits also established an ongoing international collaboration and exposed me to different research methodologies and perspectives.
+
+% ---------------------------------------------------------------------------
+\section{Conferences, Workshops, and Presentations}
+\label{sec:conferences}
+
+\begin{itemize}
+  \item International ABS Workshop 2023 -- attendee.
+  \item 25th Workshop \emph{From Objects to Agents} (WOA 2024), Bard (Aosta), Italy -- paper presentation~\cite{DBLP:conf/woa/DominiFAV24}.
+  \item ACM SIGPLAN International Conference on Functional Programming (ICFP 2024) -- attendee.
+  \item IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2024), Aarhus, Denmark -- co-author of five papers; presented the main-track paper~\cite{DBLP:conf/acsos/FarabegoliVC24} and the Doctoral Symposium paper~\cite{DBLP:conf/acsos/Farabegoli24}.
+  \item 27th International Conference on Coordination Models and Languages (COORDINATION 2025, part of DisCoTec 2025), Lille, France, June 2025 -- paper presentations~\cite{DBLP:conf/coordination/BrogiCFFV25,DBLP:conf/coordination/AguzziBBCCDFPV25}.
+  \item 28th International Conference on Coordination Models and Languages (COORDINATION 2026, part of DisCoTec 2026), Urbino, Italy, June 2026 -- paper presentation~\cite{DBLP:conf/coordination/FarabegoliTAV26}.
+  \item IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS 2026), Cesena, Italy -- attendee.
+\end{itemize}
+
+% ---------------------------------------------------------------------------
+\section{Teaching and Tutoring Activities}
+\label{sec:teaching}
+
+\begin{itemize}
+  \item Tutor for the course \emph{Programmazione ad Oggetti} [cod.\ 70219], Module~1, Bachelor's Degree in Computer Science and Engineering:
+  \begin{itemize}
+    \item A.Y.\ 2023/2024, 10 Sep -- 21 Dec 2023, 48 hours;
+    \item A.Y.\ 2024/2025, 10 Sep -- 21 Dec 2024, 48 hours.
+  \end{itemize}
+  \item Tutor for the course \emph{Paradigmi di Programmazione e Sviluppo} [cod.\ 81612], Module~1, part of the integrated course \emph{Sviluppo dei Sistemi Software} [cod.\ 81892]:
+  \begin{itemize}
+    \item A.Y.\ 2025/2026, 60 hours.
+  \end{itemize}
+\end{itemize}
+
+% ---------------------------------------------------------------------------
+\section{Other Academic Activities}
+\label{sec:other}
+
+\begin{itemize}
+  \item Development of open-source software and open-hardware artifacts:
+  \begin{itemize}
+    \item \textbf{PulvReAKt} -- Kotlin Multiplatform framework for system pulverization (\url{https://github.com/pulvreakt/pulvreakt});
+    \item \textbf{ScaFi~3} -- Scala~3 DSL for aggregate programming (\url{https://github.com/scafi/scafi3});
+    \item \textbf{HarmoniKt} -- unifying middleware for heterogeneous robot fleets~\cite{DBLP:conf/ccnc/AndruccioliCDFDPVV26} (\url{https://github.com/harmonikt});
+    \item \textbf{Project Emerge} -- low-cost, open-hardware swarm robotic platform~\cite{farabegoli2027emerge} (\url{https://github.com/project-emerge}).
+  \end{itemize}
+  \item Peer reviewing of submissions to the IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS) and to the International Conference on Coordination Models and Languages (COORDINATION).
+\end{itemize}
+
+% ---------------------------------------------------------------------------
+\section{List of Publications}
+\label{sec:publications}
+
+During the doctoral path I co-authored 18 works:
+6 journal articles, 11 conference and workshop papers, and 1 journal article currently under review.
+%
+I am the first author of 8 of them.
+
+\nocite{*}
+\printbibliography[type=article, heading=subbibliography, title={Journal Articles}]
+\printbibliography[type=inproceedings, heading=subbibliography, title={Conference and Workshop Papers}]
+\printbibliography[type=unpublished, heading=subbibliography, title={Submitted for Publication}]
+
+\end{document}

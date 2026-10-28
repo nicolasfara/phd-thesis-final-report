@@ -1,0 +1,23 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.pdf
+
+# Editors and OS
+.idea/
+.vscode/
+*.kate-swp
+.directory
+.DS_Store
+
+build/
+out/
